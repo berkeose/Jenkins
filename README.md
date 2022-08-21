@@ -91,6 +91,47 @@ Pipeline
 
 
 
+pipeline {
+    agent none
+    stages {
+        
+        stage("First") {
+            agent {
+                    docker { 
+                        image 'ugurgungor/docker-with-sudo:latest'
+                        args '-v /var/run/docker.sock:/var/run/docker.sock'
+                    }
+                }              
+            
+            steps {
+                echo 'I am running in docker'
+                sh 'docker ps'
+            }
+        }
+    }
+}
+
+pipeline {
+    agent none
+    stages {
+        
+        stage("First") {
+            agent {
+                    docker { 
+                        image 'ugurgungor/docker-with-sudo:latest'
+                        args '-v /var/run/docker.sock:/var/run/docker.sock'
+                    }
+                }              
+            
+            steps {
+                echo 'I am running in docker'
+                sh 'docker ps'
+            }
+        }
+    }
+}
+
+### Yukarıdaki scripti detaylı biçimde inceyelecek olursak Jenkins’te pipeline scriptleri pipeline {} bloğu ile başlıyor. Daha sonra bu blok içerisinde tanımlamalar yapılabiliyor. Örnek olarak biz agent none diyerek herhangi bir agent seçimi yapmadığımızı belirtiyoruz, bu şu demek oluyor pipeline’da agentlarıdaha sonra ihtiyacıma göre seçebiliriz.Stages bloğu içinde koşacak stage’leri implement ediyor olacağım, örnek olarak oluşturduğumuz pipeline-test job’ında sadece 1 adet stage bulunuyor. Stage boğu içinde agent tanımı yapıyorum burada kullanacağım agent bir docker agent’ıdır 
 
 
 
