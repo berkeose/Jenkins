@@ -63,3 +63,34 @@ Bu şekilde bir komut belirtirsek consol outputumuz şimdiki tarih ve saati gös
 Yetkilendirleme işlemelrini yapabiliriz . Jenkins'i Yönet → Configure global security'a gidin.
 
 
+## Jenkins Global Envoriment Variables
+### Jenkins'teki Ortam Değişkenleri nelerdir? Ortam değişkenleri, Jenkins'in bir projeye erişip enjekte edebileceği global anahtar/değer çiftleridir. Her proje için aynı değerleri kodlamaktan kaçınmak için Jenkins ortam değişkenlerini kullanın. Jenkins ortam değişkenlerini kullanmanın diğer faydaları arasında gelişmiş güvenlik bulunur.
+
+https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables
+
+### Jenkins'i Yönet-> Configure System -> Global Properties altında enviroment-variables seçerek kendi ortam değişkenlerimizi de yaratabiliriz.
+
+### Nasıl Job Otomatik Execute Edilir?
+
+### Bir Job'umuzu her gün saat 1' de execute etmemiz lazim bunu nasil sağlarız? Configurations -> Build Triggers -> Periyodik olarak yapılandırı seçip aşağıdaki gibi bir girdi girersek bu Job artık otomatik olarak execute edilecektir. Eğer birden fazla Job'larımız varsa ve aynı saatte execute edilmesi gerekiyorsa bunun için sistem biraz yavaşlayacaktır. "H" kullanarak öncelik verilecek Job'u kendimiz ayarlayabiliriz.
+![13](https://user-images.githubusercontent.com/81867200/185794240-12b85513-5017-463e-b044-8cf337463994.png)
+
+## Jenkins&Mailer
+### Jenkins'te mail yoluyla bildirim almak için Jenkins Mail Pluginini inidirmemiz gerekir.Sonra içinde olduğumuz Job'da"Post build actions" altında E-mail Notificationu seçip adresi girmemiz yeterli. Job Execute olduğunda başarılı veya başarısız olduğunu böylece bildirim olarak alabiliriz.
+
+
+## Freestyle Jobs
+### Yapıya adımlar ekleyerek GUI'yi kullanarak Jenkins'te Freestyle iş yapılandırırsınız. Freestyle işler size çok fazla esneklik sağlar. Ancak karmaşık sürekli teslim senaryolarını yapılandırmakta zorlanabilirsiniz.
+
+## Pipeline Jobs
+### Pipleline Jobs, kod kullanarak bir dizi talimat oluşturmanıza olanak tanır. Ayrıca farklı aşamaları tek bir yerde kolayca görselleştirebilirsiniz. En önemlisi, tüm kodu bir kod deposunda saklayabilirsiniz. Bu da, değişiklikleri sürümlendirmenize, denetlemenize ve izlemenize olanak tanır.
+### Pipeline Jobs işleri Jenkinsfile kullanılarak oluşturulur. Ve Jenkinsfiles, komut dosyası dili olarak Apache Groovy'yi kullanır.
+
+Pipeline
+ Örnek: ![example-pipeline-in-classic-ui](https://user-images.githubusercontent.com/81867200/185795772-4e880a51-484a-4630-8be7-b7437d859ae3.png)
+
+
+
+
+
+
