@@ -153,6 +153,50 @@ pipeline {
 ### Aşağıdaki komutu girip restrat ettikten sonra credentiali export etmiş oluruz.
 ### tar xzvf ./credentials.tgz -C ./
 
+## Jenkins Users Export
+### Current service'deki users.xml içindeki tanımlı kullanıcıları kopyalayıp target service içindeki users.xml dosyası içine yapıştırarak user export edilebilir.
+### User.xml içindeki bir kullanıcı görünümü:
+### <entry>
+      <string>denemeuser</string>
+      <string>denemeuser_12678411654488774791</string>
+    </entry>
+    
+### Jenkins Job Export
+### Current Service'deki jobs folderının altında olan job'u kopyalayıp Target Service içine yapıştırarak Job Export yapılabilir.
+### Docker-Compose kullanarak da aşağıdaki gibi job export edilebilir.
+version: '3.8'
+services:
+  jenkins-src:
+    image: jenkins/jenkins
+    container_name: src
+    user: root
+    ports:
+       - 85:8080
+       - 40000:50000
+    volumes:
+      - ./volume/src/jenkins_home:/var/jenkins_home  
+      
+      
+
+  jenkins-dest:
+    image: jenkins/jenkins
+    container_name: dest
+    user: root
+    ports:
+       - 1950:8080
+       - 50000:50000
+    volumes:
+      - ./volume/dest/jobs:/var/jenkins_home/jobs
+      - ./volume/dest/users:/var/jenkins_home/users
+      - ./volume/dest/nodes:/var/jenkins_home/nodes
+      - ./volume/dest/config.xml:/var/jenkins_home/config.xml
+      
+## Jenkins Export Config.xml
+### Current Service'deki config.xml dosyası kopyalanıp Target Service içine yapıştıralarak gerçekleştirilir.
+      
+      
+      
+
 
 
 
