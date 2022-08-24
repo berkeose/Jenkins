@@ -171,33 +171,9 @@ pipeline {
 ## Jenkins Export Nodes
 ### Current Service'de yaratılan node Target Service içine yapıştırlarak export edilir.
 
-### Docker-Compose kullanarak da aşağıdaki gibi job export edilebilir.
-version: '3.8'
-services:
-  jenkins-src:
-    image: jenkins/jenkins
-    container_name: src
-    user: root
-    ports:
-       - 85:8080
-       - 40000:50000
-    volumes:
-      - ./volume/src/jenkins_home:/var/jenkins_home  
-      
-      
+### Docker-Compose kullanarak da aşağıdaki gibi export edilebilir.
+![composej](https://user-images.githubusercontent.com/81867200/186428848-8a58c3e4-95a7-47b1-93d0-b417f1aaa4e5.png)
 
-  jenkins-dest:
-    image: jenkins/jenkins
-    container_name: dest
-    user: root
-    ports:
-       - 1950:8080
-       - 50000:50000
-    volumes:
-      - ./volume/dest/jobs:/var/jenkins_home/jobs
-      - ./volume/dest/users:/var/jenkins_home/users
-      - ./volume/dest/nodes:/var/jenkins_home/nodes
-      - ./volume/dest/config.xml:/var/jenkins_home/config.xml
 
       
       
