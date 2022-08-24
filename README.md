@@ -134,4 +134,25 @@ pipeline {
 ### Yukarıdaki scripti detaylı biçimde inceyelecek olursak Jenkins’te pipeline scriptleri pipeline {} bloğu ile başlıyor. Daha sonra bu blok içerisinde tanımlamalar yapılabiliyor. Örnek olarak biz agent none diyerek herhangi bir agent seçimi yapmadığımızı belirtiyoruz, bu şu demek oluyor pipeline’da agentlarıdaha sonra ihtiyacıma göre seçebiliriz.Stages bloğu içinde koşacak stage’leri implement ediyor olacağım, örnek olarak oluşturduğumuz pipeline-test job’ında sadece 1 adet stage bulunuyor. Stage boğu içinde agent tanımı yapıyorum burada kullanacağım agent bir docker agent’ıdır 
 
 
+## Jenkins Credentials Export
+### İlk olarak target Jenkins serverimizi stop ediyoruz.
+###
+### Current serverimizdeki credentials.tgz klasörünü target serverimizdeki tmp klasörüne kopyaliyoruz.
+###  docker cp .\credentials.tgz dest:/tmp
+
+### Target serverimize bash komutu ile bağlanıyoruz.
+###  docker exec -it targetserver bash
+
+### identity.key.enc klasörünü bulup siliyoruz
+###   find / -name identity.key.enc
+###   rm /var/jenkins_home/identity.key.enc
+### credentials.tgz klasörünü jenkins_home dizinine kopyalıyoruz.
+###  cp /tmp/credentials.tgz /var/jenkins_home/
+### Dizine geçiyoruz
+### cd /var/jenkins_home/
+### Aşağıdaki komutu girip restrat ettikten sonra credentiali export etmiş oluruz.
+### tar xzvf ./credentials.tgz -C ./
+
+
+
 
