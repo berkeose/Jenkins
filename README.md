@@ -163,6 +163,14 @@ pipeline {
     
 ### Jenkins Job Export
 ### Current Service'deki jobs folderının altında olan job'u kopyalayıp Target Service içine yapıştırarak Job Export yapılabilir.
+
+      
+## Jenkins Export Config.xml
+### Current Service'deki config.xml dosyası kopyalanıp Target Service içine yapıştıralarak gerçekleştirilir.
+
+## Jenkins Export Nodes
+### Current Service'de yaratılan node Target Service içine yapıştırlarak export edilir.
+
 ### Docker-Compose kullanarak da aşağıdaki gibi job export edilebilir.
 version: '3.8'
 services:
@@ -190,9 +198,7 @@ services:
       - ./volume/dest/users:/var/jenkins_home/users
       - ./volume/dest/nodes:/var/jenkins_home/nodes
       - ./volume/dest/config.xml:/var/jenkins_home/config.xml
-      
-## Jenkins Export Config.xml
-### Current Service'deki config.xml dosyası kopyalanıp Target Service içine yapıştıralarak gerçekleştirilir.
+
       
       
       
