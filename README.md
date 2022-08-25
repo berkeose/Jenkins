@@ -174,6 +174,31 @@ pipeline {
 ### Docker-Compose kullanarak da aşağıdaki gibi export edilebilir.
 ![composej](https://user-images.githubusercontent.com/81867200/186428848-8a58c3e4-95a7-47b1-93d0-b417f1aaa4e5.png)
 
+## JENKINS IMPORT
+### Yaptığımız bu değişiklikleri Target Service'imizde Manage Jenkins -> Tools Actions -> Konfigürasyonu Diskten Yükle işlemlerini gerçekleştirerek Target Service'imiz de yaptığımız değişiklikleri görebilirz.
+
+## JOB İÇİNDE PRİVATE GİT REPOSUNDAN BİR PROJE ÇEKMEK
+### GitBash'i açıyoruz
+### $ ssh-keygen -t ed25519 -C "your_email@example.com"
+### > Enter a file in which to save the key (/c/Users/you/.ssh/id_algorithm):[Press enter]
+### > Enter passphrase (empty for no passphrase): [Type a passphrase]
+### > Enter same passphrase again: [Type passphrase again]
+### start the ssh-agent in the background
+### $ eval "$(ssh-agent -s)"
+### > Agent pid 59566
+### $ ssh-add ~/.ssh/id_ed25519
+
+### Adımları takip ederek bir ssh key oluşturuyoruz.
+
+### Oluşturdğumuz bu key'i private repomuzun içine deploy ediyoruz
+### Jenkins'te yeni bir credential yaratıyoruz
+### SSH Username with private key seçeneğiyle Git'e deploy ettiğimiz sshk-key'i girip kaydediyoruz.
+### Projeyi oluştururken SCM(Kaynak Kodu Yönetimi) Git'i seçip repo url'i ve credentialimizi ekliyoruz.
+### Save diyerek çıkıp build ediyoruz ve git repomuzdaki proje derlenip çalışıyor.
+
+### Örnek Maven Projesi
+https://semihsaydam.medium.com/jenkins-yolculu%C4%9Fu-11-2341a1b05703
+
 
       
       
